@@ -2,7 +2,9 @@ from pydantic import BaseModel
 
 
 class PredictRequest(BaseModel):
-    prompt: str
+    existing_analysis: dict
+    existing_uniques: list[str]
+    prediction_target: str
     response_len: int
     n: int
 

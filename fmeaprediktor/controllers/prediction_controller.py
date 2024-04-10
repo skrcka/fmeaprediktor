@@ -16,7 +16,11 @@ class PredictionController:
         self._context = context
 
     async def predict(self, predict_request: PredictRequest) -> PredictResponse:
+        existing_analysis = str(predict_request.existing_analysis)
+        prediction_target = predict_request.prediction_target
+        existing_uniques = predict_request.existing_uniques
+        prompt = f"Given the following analysis: {existing_analysis}, predict the {prediction_target}. Please dont user the following words: {', '.join(existing_uniques)}"
         responses = await self._context.openai_connector.generate_response(
-            predict_request.prompt, predict_request.response_len, predict_request.n
+            prompt=prompt, max_words=predict_request.response_len, n=predict_request.n
         )
         return PredictResponse(predictions=responses)

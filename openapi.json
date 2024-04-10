@@ -61,13 +61,24 @@
             },
             "PredictRequest": {
                 "properties": {
-                    "prompt": {
-                        "type": "string",
-                        "title": "Prompt"
+                    "existing_analysis": {
+                        "type": "object",
+                        "title": "Existing Analysis"
                     },
-                    "max_tokens": {
+                    "existing_uniques": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array",
+                        "title": "Existing Uniques"
+                    },
+                    "prediction_target": {
+                        "type": "string",
+                        "title": "Prediction Target"
+                    },
+                    "response_len": {
                         "type": "integer",
-                        "title": "Max Tokens"
+                        "title": "Response Len"
                     },
                     "n": {
                         "type": "integer",
@@ -76,8 +87,10 @@
                 },
                 "type": "object",
                 "required": [
-                    "prompt",
-                    "max_tokens",
+                    "existing_analysis",
+                    "existing_uniques",
+                    "prediction_target",
+                    "response_len",
                     "n"
                 ],
                 "title": "PredictRequest"

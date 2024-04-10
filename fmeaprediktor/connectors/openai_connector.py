@@ -31,7 +31,6 @@ class OpenAIConnector:
                 {"role": "user", "content": prompt},
             ],
             "model": self.model,
-            "max_tokens": len(self.system_message) + len(prompt) + max_words,
             "n": n,
         }
 
@@ -53,7 +52,9 @@ class OpenAIConnector:
         if "choices" not in result:
             raise OpenAIException("Invalid response format")
         choices = result["choices"]
-        return [choice["message"]["content"].strip() for choice in choices]
+        predictions = [choice["message"]["content"].strip() for choice in choices]
+        unique_predictions = list(set(predictions))
+        return unique_predictions
 
 
 async def main():

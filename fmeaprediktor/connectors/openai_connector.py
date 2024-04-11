@@ -52,7 +52,7 @@ class OpenAIConnector:
         if "choices" not in result:
             raise OpenAIException("Invalid response format")
         choices = result["choices"]
-        predictions = [choice["message"]["content"].strip() for choice in choices]
+        predictions = [choice["message"]["content"].strip().strip('\\"') for choice in choices]
         unique_predictions = list(set(predictions))
         return unique_predictions
 

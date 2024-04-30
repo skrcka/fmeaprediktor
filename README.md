@@ -40,6 +40,6 @@ docker run -d -p 8000:80 -v <path_to_config_ini>:/app/config.ini --name fmeapred
 
 ## Nasazení na produkční prostředí
 
-Pomocí CI/CD pipeline je možné nasadit aplikaci na produkční prostředí. Pipeline je konfigurována v Infrastructure repozitáři. Projekt je určený pro nasazení v prostředí Azure.
+Pomocí CI/CD pipeline je možné nasadit aplikaci na produkční prostředí. Projekt je určený pro nasazení v prostředí Azure.
 
 Tento modul je možné nasadit samostatně, ale je určený pro spolupráci s Frontendem aplikace.

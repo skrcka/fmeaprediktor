@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "fmeapredictor"
-version = "1.0.0"
+name = "fmea-analysis-tool-ml-module"
+version = "1.1.0"
 description = ""
 authors = ["skrcka <krcek.adam@gmail.com>"]
 readme = "README.md"
